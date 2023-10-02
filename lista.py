@@ -97,6 +97,8 @@ class LinkedList:
             self.__head = pointer.next
             self.__size-=1
             self.__pointer = self.__head
+            if data == self.__pointer.data:
+                self.__pointer = self.__pointer.next
             return data
         elif position == len(self):
             data = self.__tail.data
@@ -108,6 +110,8 @@ class LinkedList:
             pointer.next = self.__head
             self.__tail = pointer
             self.__size-=1
+            if data == self.__pointer.data:
+                self.__pointer = self.__pointer.next
             return data
         else:
             pointer = self.__head
@@ -119,6 +123,8 @@ class LinkedList:
                 count+=1
             ant.next = pointer.next
             data = pointer.data
+            if data == self.__pointer.data:
+                self.__pointer = self.__pointer.next
             self.__size-=1
             return data
 
