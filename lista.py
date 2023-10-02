@@ -33,7 +33,8 @@ class LinkedList:
         self.__head = None
         self.__tail = None
         self.__size = 0
-    
+        self.__pointer = self.__head
+
     def isEmpty(self):
         return self.__size == 0
     
@@ -47,12 +48,14 @@ class LinkedList:
             self.__tail = new
             self.__tail.next = self.__head
             self.__size+=1
+            self.__pointer = self.__head
         elif position == 1:
             new = Node(value)
             new.next = self.__head
             self.__head = new
             self.__tail.next = self.__head
             self.__size +=1
+            self.__pointer = self.__head
         elif position == len(self)+1:
             new = Node(value)
             self.__tail.next = new
@@ -70,7 +73,12 @@ class LinkedList:
             pointer.next = new
             self.__size+=1
 
-    def advance(self,start ,quantity):
+    def advance(self,quantity):
+        for i in range(quantity):
+            self.__pointer = self.__pointer.next
+        return self.__pointer.data
+
+    def goTo(self,start ,quantity):
         pointer = self.__head
         count = 1
         while (count<start):
@@ -89,6 +97,7 @@ class LinkedList:
             self.__tail.next = pointer.next
             self.__head = pointer.next
             self.__size-=1
+            self.__pointer = self.__head
             return data
         elif position == len(self):
             data = self.__tail.data
