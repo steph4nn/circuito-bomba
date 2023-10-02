@@ -73,9 +73,8 @@ class LinkedList:
             pointer.next = new
             self.__size+=1
 
-    def advance(self,quantity):
-        for i in range(quantity):
-            self.__pointer = self.__pointer.next
+    def advance(self):
+        self.__pointer = self.__pointer.next
         return self.__pointer.data
 
     def goTo(self,start ,quantity):

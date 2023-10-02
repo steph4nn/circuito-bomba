@@ -10,6 +10,8 @@ lista.insert(20,1)
 print(lista)
 n = 3
 c = 1
-while c <= 3: 
-    print(lista.advance(3))
-    c+=1
+# print(f"Sem interar: {lista.advance(3)}")
+print("Interando:")
+for i in range(3):
+    print(lista.advance())
+    
