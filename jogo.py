@@ -1,4 +1,5 @@
 from lista import LinkedList
+from random import randint
 class Jogo:
     def __init__(self, quantity:int, winners:int):
         self.__quantity = quantity
@@ -37,3 +38,21 @@ class Jogo:
         return str
     def __len__(self):
         return len(self.__players)
+    def iniciarJogo(self,start:int):
+        round = 1
+        while self.__winners < len(self):
+            music = randint(4,15)
+            print("--------------------COMEÇO DO ROUND------------------")
+            print(f"participantes: {self}")
+            print(f"Rodada: {round}")
+            print(f"Start: {self.mostrarJogador(start-1)} K={music}")
+            self.passarJogador(music)
+            eliminado =self.selecionarJogador(start,music)
+            start = eliminado
+            print(f"Jogador eliminado: {self.eliminarJogador(eliminado)}")
+            print("--------------------FIM DO ROUND------------------")
+            print()
+            round +=1
+        print()
+        print(f"O(s) participante(s) vencedor(es): {self}")
+        
