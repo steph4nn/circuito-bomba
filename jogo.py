@@ -1,17 +1,28 @@
 from lista import LinkedList
 from random import randint
+from time import sleep
 class Jogo:
     def __init__(self, quantity:int, winners:int):
         self.__quantity = quantity
         self.__winners = winners
         self.__players = LinkedList()
-    def players(self):
+    def playersAut(self, arq):
+        arqOpen =open(arq, 'r')
+        string_jogadores = arqOpen.readlines()
+        string_jogadores = string_jogadores[0]
+        print(string_jogadores)
+        arr_jogadores = string_jogadores.split(', ')
+        for i in range(self.__quantity):
+            player = arr_jogadores[i].title()
+            self.__players.insert(player,1)
+    def playersManual(self):
         for i in range(self.__quantity):
             player = input("Nome do jogador: ").title()
             self.__players.insert(player,1)
     def passarJogador(self,quantity):
         for i in range(quantity):
                 print(self.__players.advance())
+                sleep(1)
     def definirPrimeiro(self, quantity):
         if quantity==1:
             return
@@ -53,6 +64,7 @@ class Jogo:
             print("--------------------FIM DO ROUND------------------")
             print()
             round +=1
+            sleep(2)
         print()
         print(f"O(s) participante(s) vencedor(es): {self}")
         
