@@ -25,7 +25,7 @@ try:
         arq = './jogadores/jogadores.txt'
         jogo.playersAut(arq)
     else:
-        print('opção inválida.')
+        raise AttributeError
     start = randint(1,num_participantes)
     print(f"valor do start {start}")
     jogo.definirPrimeiro(start-1)
@@ -37,6 +37,8 @@ try:
         jogador = jogo.mostrarJogador(i)
         arq.write(f"{jogador} ")
 
+except AttributeError:
+    print('opção inválida.')
 except ValueError:
     print('O número de participantes precisa ser maior que 0.')
 except IndexError:
