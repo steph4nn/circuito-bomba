@@ -14,17 +14,20 @@ class Jogo:
         arr_jogadores = string_jogadores.split(', ')
         for i in range(self.__quantity):
             player = arr_jogadores[i].title()
+            if self.__players.isEmpty() == False:
+                self.__players.verifyElement(player)
             self.__players.insert(player,1)
     def playersManual(self):
         for i in range(self.__quantity):
             player = input("Nome do jogador: ").title()
+            if self.__players.isEmpty() == False:
+                self.__players.verifyElement(player)
             position = int(input("Posição do jogador: "))
             self.__players.insert(player,position)
     def passarJogador(self,quantity):
         for i in range(quantity):
                 print(self.__players.advance())
                 sleep(1)
-                
     def definirPrimeiro(self, quantity):
         if quantity==1:
             return

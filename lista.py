@@ -159,7 +159,7 @@ class LinkedList:
             pointer = pointer.next
             if pointer == self.__head:
                 break
-        raise ListException(f'O elemento {key} não está armazenado na lista')
+        raise ListException(f'O elemento {elem} não está armazenado na lista')
 
     def element(self, index):
         try:
@@ -176,7 +176,14 @@ class LinkedList:
             raise ListException(f'A posição deve ser um número inteiro')            
         except AssertionError as ae:
             raise ListException(ae)
-    
+    def verifyElement(self,element):
+        try:
+            pointer= self.__head
+            for i in range(len(self)):
+                assert pointer.data != element, f'O elemento [{element}] já está na lista e não pode ser adicionado de novo.'
+                pointer = pointer.next
+        except AssertionError as ae:
+            raise ListException(ae)
     def __str__(self) -> str:
         str = '[ '
         if self.isEmpty():
