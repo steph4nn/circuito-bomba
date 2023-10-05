@@ -104,7 +104,7 @@ class LinkedList:
         try:
             if( self.isEmpty() ):
                 raise ListException(f'Não é possível remover de uma lista vazia')            
-            assert position > 0 and position <= len(self), f'Posicao invalida. Lista contém {self.__tamanho} elementos'
+            assert position > 0 and position <= len(self), f'Posicao invalida. Lista contém {self.__size} elementos'
             
             if position == 1:
                 data = self.__head.data
