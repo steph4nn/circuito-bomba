@@ -18,11 +18,13 @@ class Jogo:
     def playersManual(self):
         for i in range(self.__quantity):
             player = input("Nome do jogador: ").title()
-            self.__players.insert(player,1)
+            position = int(input("Posição do jogador: "))
+            self.__players.insert(player,position)
     def passarJogador(self,quantity):
         for i in range(quantity):
                 print(self.__players.advance())
                 sleep(1)
+                
     def definirPrimeiro(self, quantity):
         if quantity==1:
             return
