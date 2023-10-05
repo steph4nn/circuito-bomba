@@ -157,6 +157,7 @@ class LinkedList:
             if pointer.data == elem:
                 return count
             pointer = pointer.next
+            count+=1
             if pointer == self.__head:
                 break
         raise ListException(f'O elemento {elem} não está armazenado na lista')

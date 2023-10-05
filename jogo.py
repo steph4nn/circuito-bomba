@@ -62,8 +62,11 @@ class Jogo:
             print(f"participantes: {self}")
             print(f"Rodada: {round}")
             print(f"Start: {self.mostrarJogador(start-1)} K={music}")
-            self.passarJogador(music)
-            eliminado =self.selecionarJogador(start,music)
+            for i in range(music):
+                proximoEliminado =self.__players.advance()
+                print(proximoEliminado)
+                sleep(1)
+            eliminado =self.posicaoJogador(proximoEliminado)-1
             start = eliminado
             print(f"Jogador eliminado: {self.eliminarJogador(eliminado)}")
             print("--------------------FIM DO ROUND------------------")
